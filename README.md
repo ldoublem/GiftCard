@@ -9,7 +9,7 @@ Inspiration comes from [dribbble](https://dribbble.com/shots/2045026-Gift-Card)
 ![shot2](https://github.com/ldoublem/GiftCard/blob/master/screenshot/shot2.png)
 
 #Gradle
-compile 'com.ldoublem.GiftCard:giftcardlib:0.1'
+compile 'com.ldoublem.GiftCard:giftcardlib:0.2'
 
 ---
 Usage with xml
