@@ -1,5 +1,7 @@
 # GiftCard
 A beautiful gift Cards for android
+
+Inspiration comes from [dribbble](https://dribbble.com/shots/2045026-Gift-Card)
 #Preview
 ---
 ![gif](https://github.com/ldoublem/GiftCard/blob/master/screenshot/shot.gif)
