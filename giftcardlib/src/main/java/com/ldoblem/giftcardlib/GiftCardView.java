@@ -74,13 +74,11 @@ public class GiftCardView extends View {
     int buyButtonColor = Color.rgb(243, 152, 0);
 
 
-
     int checkButtonColor = Color.rgb(8, 156, 239);
 
     int cardBgColor = Color.WHITE;
     int giftLogo = R.drawable.apple;
     int bgPackBgColor = Color.rgb(252, 44, 44);
-
 
 
     int mPriceTextColor = Color.rgb(150, 150, 150);
@@ -89,37 +87,39 @@ public class GiftCardView extends View {
 
     OnCheckOut mOnCheckOut;
 
-    public void setMTitle(String text)
-    {
-        this.mTitle=text;
-    }
-    public void setMPrice(float price)
-    {
-        this.mPrice=price;
+
+    boolean pressBuyButton = false;
+    boolean pressCheckButton = false;
+
+
+    public void setMTitle(String text) {
+        this.mTitle = text;
     }
 
-    public void setCardTip(String text)
-    {
-        this.cardTip=text;
+    public void setMPrice(float price) {
+        this.mPrice = price;
     }
 
-    public void setButtonBuyText(String text)
-    {
-        this.mButtonBuyText=text;
-    }
-    public void setButtonCheckText(String text)
-    {
-        this.mButtonCheckText=text;
+    public void setCardTip(String text) {
+        this.cardTip = text;
     }
 
-    public void setCardBgColor(int color)
-    {
-        this.cardBgColor=color;
+    public void setButtonBuyText(String text) {
+        this.mButtonBuyText = text;
     }
-    public void setGiftLogo(int id)
-    {
-        this.giftLogo=id;
+
+    public void setButtonCheckText(String text) {
+        this.mButtonCheckText = text;
     }
+
+    public void setCardBgColor(int color) {
+        this.cardBgColor = color;
+    }
+
+    public void setGiftLogo(int id) {
+        this.giftLogo = id;
+    }
+
     public void setBgStartColor(int bgStartColor) {
         this.bgStartColor = bgStartColor;
     }
@@ -135,6 +135,7 @@ public class GiftCardView extends View {
     public void setCheckButtonColor(int checkButtonColor) {
         this.checkButtonColor = checkButtonColor;
     }
+
     public void setBgPackBgColor(int bgPackBgColor) {
         this.bgPackBgColor = bgPackBgColor;
     }
@@ -144,9 +145,8 @@ public class GiftCardView extends View {
     }
 
 
-
-    public void setOnCheckOut(Buyer buyer,OnCheckOut onCheckOut) {
-        this.mBuyer=buyer;
+    public void setOnCheckOut(Buyer buyer, OnCheckOut onCheckOut) {
+        this.mBuyer = buyer;
         this.mOnCheckOut = onCheckOut;
         invalidate();
     }
@@ -434,6 +434,17 @@ public class GiftCardView extends View {
                 mBuyButtonH;
         rectFBuyButton.right = rectFBgMove.right - mCircular;
         rectFBuyButton.left = rectFBgMove.right - mCircular - mBuyButtonW;
+
+
+        if (pressBuyButton) {
+            rectFBuyButton.top = rectFBuyButton.top + 4;
+            rectFBuyButton.left = rectFBuyButton.left + 4;
+            rectFBuyButton.bottom = rectFBuyButton.bottom - 4;
+            rectFBuyButton.right = rectFBuyButton.right - 4;
+
+        }
+
+
         canvas.drawRoundRect(rectFBuyButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
         mPaintText.setColor(Color.WHITE);
         canvas.drawText(mButtonBuyText, rectFBuyButton.centerX() - getFontlength(mPaintText, mButtonBuyText) / 2f
@@ -445,43 +456,229 @@ public class GiftCardView extends View {
 
             float packValueFirst = mAmAnimatedPackValue / 0.4f;
 
-            float maxWidth = mCircular * 2;//rectFBuyButton.width()/2f+mCircular;
+            float maxWidth = mCircular * 2;
 
             float maxHigh = rectFBuyButton.height() / 2f + mCircular;
-
+            maxHigh = rectFBuyButton.height() / 2f * 0.8f;
 
             mPaintBuyButton.setColor(bgPackBgColor);
             mPathPackTop.reset();
+//            mPathPackTop.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.top);
+//            mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.top);
+//            mPathPackTop.lineTo(rectFBuyButton.centerX(), rectFBuyButton.top + maxHigh * packValueFirst - mCircular);
+//            mPathPackTop.close();
+
+
+//            float a=maxHigh-rectFBuyButton.top + maxHigh * packValueFirst
+
             mPathPackTop.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.top);
             mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.top);
-            mPathPackTop.lineTo(rectFBuyButton.centerX(), rectFBuyButton.top + maxHigh * packValueFirst - mCircular);
+
+            mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f -
+                    maxHigh * (1 - packValueFirst), rectFBuyButton.top -
+                    maxHigh * (1 - packValueFirst));
+
+            mPathPackTop.lineTo(rectFBuyButton.left + mCircular / 2f +
+                            maxHigh * (1 - packValueFirst)
+                    , rectFBuyButton.top -
+                            maxHigh * (1 - packValueFirst));
+
             mPathPackTop.close();
+            mPaintBuyButton.setAlpha(200);
+            canvas.drawPath(mPathPackTop, mPaintBuyButton);
+
+            mPathPackTop.reset();
+            mPathPackTop.moveTo(rectFBuyButton.right - mCircular / 2f -
+                    maxHigh * (1 - packValueFirst), rectFBuyButton.top -
+                    maxHigh * (1 - packValueFirst));
+
+            mPathPackTop.lineTo(rectFBuyButton.left + mCircular / 2f +
+                            maxHigh * (1 - packValueFirst)
+                    , rectFBuyButton.top -
+                            maxHigh * (1 - packValueFirst));
+
+            mPathPackTop.lineTo(
+                    rectFBuyButton.centerX(),
+                    rectFBuyButton.top -
+                            maxHigh * (1 - packValueFirst) +
+                            maxHigh * packValueFirst
+
+            );
+            mPathPackTop.close();
+            mPaintBuyButton.setAlpha(255);
+
             canvas.drawPath(mPathPackTop, mPaintBuyButton);
 
 
+//            mPathPackBottom.reset();
+//            mPathPackBottom.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.bottom);
+//            mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.bottom);
+//            mPathPackBottom.lineTo(rectFBuyButton.centerX(), rectFBuyButton.bottom - maxHigh * packValueFirst + mCircular);
+//            mPathPackBottom.close();
+//            canvas.drawPath(mPathPackBottom, mPaintBuyButton);
             mPathPackBottom.reset();
             mPathPackBottom.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.bottom);
             mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.bottom);
-            mPathPackBottom.lineTo(rectFBuyButton.centerX(), rectFBuyButton.bottom - maxHigh * packValueFirst + mCircular);
+
+
+            mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f -
+                    maxHigh * (1 - packValueFirst), rectFBuyButton.bottom +
+                    maxHigh * (1 - packValueFirst));
+
+            mPathPackBottom.lineTo(rectFBuyButton.left + mCircular / 2f +
+                            maxHigh * (1 - packValueFirst)
+                    , rectFBuyButton.bottom +
+                            maxHigh * (1 - packValueFirst));
+
             mPathPackBottom.close();
+            mPaintBuyButton.setAlpha(200);
             canvas.drawPath(mPathPackBottom, mPaintBuyButton);
 
+
+            mPathPackBottom.reset();
+            mPathPackBottom.moveTo(rectFBuyButton.right - mCircular / 2f -
+                    maxHigh * (1 - packValueFirst), rectFBuyButton.bottom +
+                    maxHigh * (1 - packValueFirst));
+
+            mPathPackBottom.lineTo(rectFBuyButton.left + mCircular / 2f +
+                            maxHigh * (1 - packValueFirst)
+                    , rectFBuyButton.bottom +
+                            maxHigh * (1 - packValueFirst));
+            mPathPackBottom.lineTo(
+                    rectFBuyButton.centerX(),
+                    rectFBuyButton.bottom +
+                            maxHigh * (1 - packValueFirst) -
+                            maxHigh * packValueFirst
+
+            );
+            mPathPackBottom.close();
+            mPaintBuyButton.setAlpha(255);
+
+            canvas.drawPath(mPathPackBottom, mPaintBuyButton);
+
+
+//            mPathPackLeft.reset();
+//            mPathPackLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 2f);
+//            mPathPackLeft.lineTo(rectFBuyButton.left, rectFBuyButton.bottom - mCircular / 2f);
+//            mPathPackLeft.lineTo(rectFBuyButton.left + maxWidth * packValueFirst - mCircular
+//                    , rectFBuyButton.centerY());
+//            mPathPackLeft.close();
+//            canvas.drawPath(mPathPackLeft, mPaintBuyButton);
+
+            maxWidth = rectFBuyButton.height() / 2f * 0.5f;
 
             mPathPackLeft.reset();
             mPathPackLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 2f);
             mPathPackLeft.lineTo(rectFBuyButton.left, rectFBuyButton.bottom - mCircular / 2f);
-            mPathPackLeft.lineTo(rectFBuyButton.left + maxWidth * packValueFirst - mCircular
-                    , rectFBuyButton.centerY());
+            mPathPackLeft.lineTo(rectFBuyButton.left -
+                            maxWidth * (1 - packValueFirst)
+
+                    , rectFBuyButton.bottom - mCircular / 2f -
+                            maxWidth * (1 - packValueFirst)
+            );
+            mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst), rectFBuyButton.top + mCircular / 2f
+                    + maxWidth * (1 - packValueFirst));
+
             mPathPackLeft.close();
+            mPaintBuyButton.setAlpha(200);
             canvas.drawPath(mPathPackLeft, mPaintBuyButton);
+
+
+
+
+
+
+
+
+            mPathPackLeft.reset();
+            mPathPackLeft.moveTo(rectFBuyButton.left -
+                            maxWidth * (1 - packValueFirst)
+
+                    , rectFBuyButton.bottom - mCircular / 2f -
+                            maxWidth * (1 - packValueFirst)
+            );
+            mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst), rectFBuyButton.top + mCircular / 2f
+                    + maxWidth * (1 - packValueFirst));
+
+            mPathPackLeft.lineTo(
+                            rectFBuyButton.left - maxWidth * (1 - packValueFirst)+
+                                    maxWidth*packValueFirst
+
+
+                    ,rectFBuyButton.centerY()
+
+
+                    );
+
+            mPathPackLeft.close();
+            mPaintBuyButton.setAlpha(255);
+            canvas.drawPath(mPathPackLeft, mPaintBuyButton);
+
+
+
+
+
+
+
+
+//            mPathPackRight.reset();
+//            mPathPackRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 2f);
+//            mPathPackRight.lineTo(rectFBuyButton.right, rectFBuyButton.bottom - mCircular / 2f);
+//            mPathPackRight.lineTo(rectFBuyButton.right - maxWidth * packValueFirst + mCircular
+//                    , rectFBuyButton.centerY());
+//            mPathPackRight.close();
+//            canvas.drawPath(mPathPackRight, mPaintBuyButton);
+
+
 
             mPathPackRight.reset();
             mPathPackRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 2f);
             mPathPackRight.lineTo(rectFBuyButton.right, rectFBuyButton.bottom - mCircular / 2f);
-            mPathPackRight.lineTo(rectFBuyButton.right - maxWidth * packValueFirst + mCircular
-                    , rectFBuyButton.centerY());
+            mPathPackRight.lineTo(rectFBuyButton.right +
+                            maxWidth * (1 - packValueFirst)
+
+                    , rectFBuyButton.bottom - mCircular / 2f -
+                            maxWidth * (1 - packValueFirst)
+            );
+            mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst), rectFBuyButton.top + mCircular / 2f
+                    + maxWidth * (1 - packValueFirst));
+
             mPathPackRight.close();
+            mPaintBuyButton.setAlpha(200);
             canvas.drawPath(mPathPackRight, mPaintBuyButton);
+
+
+
+            mPathPackRight.reset();
+            mPathPackRight.moveTo(rectFBuyButton.right +
+                            maxWidth * (1 - packValueFirst)
+
+                    , rectFBuyButton.bottom - mCircular / 2f -
+                            maxWidth * (1 - packValueFirst)
+            );
+            mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst), rectFBuyButton.top + mCircular / 2f
+                    + maxWidth * (1 - packValueFirst));
+
+            mPathPackRight.lineTo(
+                    rectFBuyButton.right + maxWidth * (1 - packValueFirst)-
+                            maxWidth*packValueFirst
+
+
+                    ,rectFBuyButton.centerY()
+
+
+            );
+
+            mPathPackRight.close();
+            mPaintBuyButton.setAlpha(255);
+            canvas.drawPath(mPathPackRight, mPaintBuyButton);
+
+
+
+
+
+
+
 
         } else if (mAmAnimatedPackValue > 0.4f && mAmAnimatedPackValue <= 1f) {
 
@@ -494,8 +691,8 @@ public class GiftCardView extends View {
             if (packValueSecond >= 1f)
                 packValueSecond = 1f;
             mPaintBuyButton.setColor(Color.rgb(253, 209, 48));
-            float maxSilkTopH = rectFBuyButton.height() / 3f + mCircular / 2f;
-            float maxSilkBottpmH = rectFBuyButton.height() / 3f * 2 + mCircular / 2f;
+            float maxSilkTopH = rectFBuyButton.height() / 3f + mCircular;
+            float maxSilkBottpmH = rectFBuyButton.height() / 3f * 2 + mCircular;
             mPathsilkTop.reset();
             mPathsilkTop.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.top);
             mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f, rectFBuyButton.top);
@@ -528,7 +725,7 @@ public class GiftCardView extends View {
             canvas.drawPath(mPathsilkBottom, mPaintBuyButton);
 
 
-            float maxSilkLeftW = mCircular + mCircular / 2f;
+            float maxSilkLeftW = mCircular + mCircular;
 
 
             mPathsilkLeft.reset();
@@ -545,7 +742,7 @@ public class GiftCardView extends View {
             canvas.drawPath(mPathsilkLeft, mPaintBuyButton);
 
 
-            float maxSilkRightW = rectFBuyButton.width() - mCircular + mCircular / 2f;
+            float maxSilkRightW = rectFBuyButton.width() - mCircular + mCircular;
 
 
             mPathsilkRight.reset();
@@ -714,6 +911,18 @@ public class GiftCardView extends View {
                     (rectFBg.width() - mCircular * 2 - mBuyButtonW);
             rectFCheckButton.left = rectFBgMove.right - mCircular - mBuyButtonW +
                     (rectFBg.width() - mCircular * 2 - mBuyButtonW);
+
+
+            if (pressCheckButton) {
+                rectFCheckButton.bottom = rectFCheckButton.bottom - 4;
+                rectFCheckButton.top = rectFCheckButton.top + 4;
+                rectFCheckButton.left = rectFCheckButton.left + 4;
+                rectFCheckButton.right = rectFCheckButton.right - 4;
+
+
+            }
+
+
             canvas.drawRoundRect(rectFCheckButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
             mPaintText.setColor(Color.WHITE);
             mPaintText.setTextSize(mCircular - 1);
@@ -728,7 +937,7 @@ public class GiftCardView extends View {
 
     private void drawCardContent(Canvas canvas) {
 
-        if (mAnimatedBgValue > 0.8f) {
+        if (mAnimatedBgValue > 0.5f) {
             mPaintText.setTextSize(mCircular * 0.8f);
             mPaintText.setColor(Color.BLACK);
             canvas.drawText(cardTip, rectFBuyButton.left,
@@ -745,13 +954,12 @@ public class GiftCardView extends View {
 
                 canvas.drawText(mBuyer.region, rectFBuyButton.left,
                         rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.region) * 4
-                        +getFontHeight(mPaintText, mBuyer.name)/2
+                                + getFontHeight(mPaintText, mBuyer.name) / 2
                         , mPaintText);
                 canvas.drawText(mBuyer.address, rectFBuyButton.left,
                         rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.address) * 5f
-                                +getFontHeight(mPaintText, mBuyer.name)/2
+                                + getFontHeight(mPaintText, mBuyer.name) / 2
                         , mPaintText);
-
 
 
                 canvas.drawText(mBuyer.availableDay, rectFBuyButton.left,
@@ -842,15 +1050,45 @@ public class GiftCardView extends View {
             case MotionEvent.ACTION_DOWN:
                 getParent().requestDisallowInterceptTouchEvent(false);
 
+                if (rectFBuyButton.contains(event.getX(), event.getY()) && mAmAnimatedPackValue == 0f) {
+                    pressBuyButton = true;
+                } else {
+                    pressBuyButton = false;
+                }
+                invalidate();
+
+
                 break;
             case MotionEvent.ACTION_MOVE:
+
+                if (rectFBuyButton.contains(event.getX(), event.getY()) && mAmAnimatedPackValue == 0f) {
+                    pressBuyButton = true;
+                    invalidate();
+                } else {
+                    if (pressBuyButton) {
+                        pressBuyButton = false;
+                        invalidate();
+                    }
+
+                }
+                if (rectFCheckButton.contains(event.getX(), event.getY()) && mAnimatedBgValue == 1.0f) {
+                    pressCheckButton = true;
+                    invalidate();
+                } else {
+                    if (pressCheckButton) {
+                        pressCheckButton = false;
+                        invalidate();
+                    }
+
+                }
 
 
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 getParent().requestDisallowInterceptTouchEvent(false);
-
+                pressBuyButton = false;
+                pressCheckButton = false;
                 if (rectFBuyButton.contains(event.getX(), event.getY()) && mAmAnimatedPackValue == 0f) {
                     startAnim(1);
                 } else if (rectFCheckButton.contains(event.getX(), event.getY()) && mAnimatedBgValue == 1.0f) {
@@ -861,6 +1099,7 @@ public class GiftCardView extends View {
                         Toast.makeText(getContext(), "OnCheckOut is null", Toast.LENGTH_SHORT).show();
 
                     }
+                    postInvalidate();
 
                 }
 
@@ -960,7 +1199,7 @@ public class GiftCardView extends View {
     }
 
 
-    public static  class Buyer {
+    public static class Buyer {
 
         public String name;
         public String region;

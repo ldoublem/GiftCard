@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
         setContentView(R.layout.activity_main);
         mGiftCardView = (GiftCardView) findViewById(R.id.gc_shop);
-        mGiftCardView.setMTitle("苹果礼券");
-        mGiftCardView.setMPrice(188);
-        mGiftCardView.setButtonBuyText("买");
-        mGiftCardView.setButtonCheckText("确定");
-        mGiftCardView.setCardTip("请检查你的购物单");
+//        mGiftCardView.setMTitle("苹果礼券");
+//        mGiftCardView.setMPrice(188);
+//        mGiftCardView.setButtonBuyText("买");
+//        mGiftCardView.setButtonCheckText("确定");
+//        mGiftCardView.setCardTip("请检查你的购物单");
 //        mGiftCardView.setCardBgColor(Color.BLACK);
 //        mGiftCardView.setGiftLogo(R.mipmap.ic_launcher);
 //        mGiftCardView.setBgStartColor(Color.BLACK);
