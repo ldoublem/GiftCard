@@ -45,7 +45,6 @@
                 card:cardBgColor="#fff"
                 card:cardGiftLogo="@mipmap/gift"
                 card:cardGiftPrice="520"
-
                 card:checkButtonColor="#00bb9c"
                 />
 
