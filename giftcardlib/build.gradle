@@ -32,7 +32,7 @@ dependencies {
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "0.1"
+version = "0.3"
 def siteUrl = 'https://github.com/ldoublem/GiftCard'    // project homepage
 def gitUrl = 'https://github.com/ldoublem/GiftCard.git' // project git
 group = "com.ldoublem.GiftCard"
