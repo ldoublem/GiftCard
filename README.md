@@ -2,11 +2,18 @@
 A beautiful gift Cards for android
 
 Inspiration comes from [dribbble](https://dribbble.com/shots/2045026-Gift-Card)
+
 #Preview
 ---
 ![gif](https://github.com/ldoublem/GiftCard/blob/master/screenshot/shot.gif)
 ![shot1](https://github.com/ldoublem/GiftCard/blob/master/screenshot/shot1.png)
 ![shot2](https://github.com/ldoublem/GiftCard/blob/master/screenshot/shot2.png)
+
+#Requirements
+Use [Android Studio 2.2 Preview 5](http://tools.android.com/download/studio/canary/latest) or higher, as the following are not available in earlier versions:
+
+* `com.android.tools.build:gradle:2.2.0-alpha5`
+* `com.android.support.constraint:constraint-layout:1.0.0-alpha3`
 
 #Gradle
 compile 'com.ldoublem.GiftCard:giftcardlib:0.2'
