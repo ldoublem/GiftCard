@@ -16,7 +16,7 @@ Use [Android Studio 2.2 Preview 5](http://tools.android.com/download/studio/cana
 * `com.android.support.constraint:constraint-layout:1.0.0-alpha3`
 
 #Gradle
-compile 'com.ldoublem.GiftCard:giftcardlib:0.2'
+compile 'com.ldoublem.GiftCard:giftcardlib:0.3'
 
 ---
 Usage with xml
