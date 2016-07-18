@@ -6,6 +6,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.ldoblem.giftcardlib.GiftCardView;
+import com.ldoblem.giftcardlib.models.Buyer;
 
 public class MainActivity extends AppCompatActivity implements GiftCardView.OnCheckOut {
     GiftCardView mGiftCardView;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
 //        mGiftCardView.setCheckButtonColor(Color.BLACK);
 //        mGiftCardView.setPriceTextColor(Color.BLACK);
 //        mGiftCardView.setBgPackBgColor(Color.BLACK);
-        mGiftCardView.setOnCheckOut(new GiftCardView.Buyer("陆先生", "中国浙江省",
+        mGiftCardView.setOnCheckOut(new Buyer("陆先生", "中国浙江省",
                         "杭州市,西湖区,南山路100号", "有效期:3天"),
                 this);
 

@@ -20,6 +20,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
+import com.ldoblem.giftcardlib.models.Buyer;
 
 /**
  * Created by lumingmin on 16/7/14.
@@ -982,24 +983,25 @@ public class GiftCardView extends View {
 
 
             if (mBuyer != null) {
-                canvas.drawText(mBuyer.name, rectFBuyButton.left,
-                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.name) * 3
+                canvas.drawText(mBuyer.getName(), rectFBuyButton.left,
+                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.getName()) * 3
                         , mPaintText);
 
                 mPaintText.setColor(mPriceTextColor);
 
-                canvas.drawText(mBuyer.region, rectFBuyButton.left,
-                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.region) * 4
-                                + getFontHeight(mPaintText, mBuyer.name) / 2
+                canvas.drawText(mBuyer.getRegion(), rectFBuyButton.left,
+                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.getRegion()) * 4
+                                + getFontHeight(mPaintText, mBuyer.getName()) / 2
                         , mPaintText);
-                canvas.drawText(mBuyer.address, rectFBuyButton.left,
-                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.address) * 5f
-                                + getFontHeight(mPaintText, mBuyer.name) / 2
+                canvas.drawText(mBuyer.getAddress(), rectFBuyButton.left,
+                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.getAddress()) * 5f
+                                + getFontHeight(mPaintText, mBuyer.getName()) / 2
                         , mPaintText);
 
 
-                canvas.drawText(mBuyer.availableDay, rectFBuyButton.left,
-                        rectFBg.top + mCircular + getFontHeight(mPaintText, mBuyer.availableDay) * 8
+                canvas.drawText(mBuyer.getAvailableDay(), rectFBuyButton.left,
+                        rectFBg.top + mCircular + getFontHeight(mPaintText,
+                            mBuyer.getAvailableDay()) * 8
                         , mPaintText);
 
 
@@ -1233,27 +1235,6 @@ public class GiftCardView extends View {
 
         return valueAnimator;
     }
-
-
-    public static class Buyer {
-
-        public String name;
-        public String region;
-
-        public String address;
-        public String availableDay;
-
-
-        public Buyer(String name, String region, String address, String availableDay) {
-            this.name = name;
-            this.region = region;
-            this.address = address;
-            this.availableDay = availableDay;
-        }
-
-
-    }
-
 
     public interface OnCheckOut {
         void ok(int vid);
