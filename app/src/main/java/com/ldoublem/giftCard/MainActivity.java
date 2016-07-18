@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
     public void ok(int vid) {
         if (vid == R.id.gc_shop) {
             Toast.makeText(MainActivity.this, "Thank you", Toast.LENGTH_SHORT).show();
-            mGiftCardView.Restore();
+            mGiftCardView.restore();
         }
     }
 }
