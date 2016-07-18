@@ -12,7 +12,6 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
@@ -21,8 +20,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Toast;
-
-import java.math.BigDecimal;
 
 /**
  * Created by lumingmin on 16/7/14.
@@ -63,7 +60,7 @@ public class GiftCardView extends View {
     float mPrice = 25.00f;
 
     String mButtonBuyText = "Buy";
-    String mButtonCheckText = "Ok";
+    String mButtonCheckText = "ok";
     String cardTip = "YOU ORDER WILL BE SHIPPED TO:";
 
     float mBuyButtonH = 0f;
@@ -187,7 +184,7 @@ public class GiftCardView extends View {
 
             mButtonCheckText = typedArray.getString(R.styleable.CardView_buttonCheckText);
             if (mButtonCheckText == null)
-                mButtonCheckText = "Ok";
+                mButtonCheckText = "ok";
             mButtonBuyText = typedArray.getString(R.styleable.CardView_buttonByText);
             if (mButtonBuyText == null)
                 mButtonBuyText = "Buy";
@@ -1133,7 +1130,7 @@ public class GiftCardView extends View {
                 } else if (rectFCheckButton.contains(event.getX(), event.getY()) && mAnimatedBgValue == 1.0f) {
 //                    Toast.makeText(getContext(), "111", Toast.LENGTH_SHORT).show();
                     if (mOnCheckOut != null) {
-                        mOnCheckOut.Ok(getId());
+                        mOnCheckOut.ok(getId());
                     } else {
                         Toast.makeText(getContext(), "OnCheckOut is null", Toast.LENGTH_SHORT).show();
 
@@ -1259,7 +1256,7 @@ public class GiftCardView extends View {
 
 
     public interface OnCheckOut {
-        void Ok(int vid);
+        void ok(int vid);
     }
 
 

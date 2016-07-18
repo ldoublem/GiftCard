@@ -1,6 +1,5 @@
 package com.ldoublem.giftCard;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -15,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //去掉信息栏
         setContentView(R.layout.activity_main);
         mGiftCardView = (GiftCardView) findViewById(R.id.gc_shop);
 //        mGiftCardView.setMTitle("苹果礼券");
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
     }
 
     @Override
-    public void Ok(int vid) {
+    public void ok(int vid) {
         if (vid == R.id.gc_shop) {
             Toast.makeText(MainActivity.this, "Thank you", Toast.LENGTH_SHORT).show();
             mGiftCardView.Restore();
