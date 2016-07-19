@@ -1,4 +1,4 @@
-package com.ldoublem.giftCard;
+package com.ldoublem.giftcard;
 
 import org.junit.Test;
 

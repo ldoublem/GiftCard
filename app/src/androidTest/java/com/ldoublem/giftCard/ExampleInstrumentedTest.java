@@ -1,4 +1,4 @@
-package com.ldoublem.giftCard;
+package com.ldoublem.giftcard;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

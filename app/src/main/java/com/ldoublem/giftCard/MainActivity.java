@@ -1,4 +1,4 @@
-package com.ldoublem.giftCard;
+package com.ldoublem.giftcard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
