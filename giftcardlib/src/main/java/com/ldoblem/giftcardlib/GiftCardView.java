@@ -82,6 +82,20 @@ public class GiftCardView extends View {
 
     private boolean pressBuyButton = false;
     private boolean pressCheckButton = false;
+    
+
+    public GiftCardView(Context context) {
+        this(context, null);
+    }
+
+    public GiftCardView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public GiftCardView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(attrs);
+    }
 
     public void setMTitle(String text) {
         this.mTitle = text;
@@ -140,20 +154,6 @@ public class GiftCardView extends View {
         this.mBuyer = buyer;
         this.mOnCheckOut = onCheckOut;
         invalidate();
-    }
-
-
-    public GiftCardView(Context context) {
-        this(context, null);
-    }
-
-    public GiftCardView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public GiftCardView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
     private void init(AttributeSet attrs) {
