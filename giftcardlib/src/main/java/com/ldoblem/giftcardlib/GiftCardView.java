@@ -82,7 +82,11 @@ public class GiftCardView extends View {
 
     private boolean pressBuyButton = false;
     private boolean pressCheckButton = false;
-    
+
+    private ValueAnimator valueAnimator;
+    private float mAnimatedBgValue = 0f;
+    private float mAmAnimatedPackValue = 0f;
+
 
     public GiftCardView(Context context) {
         this(context, null);
@@ -1037,10 +1041,6 @@ public class GiftCardView extends View {
 
         }
     }
-
-    private ValueAnimator valueAnimator;
-    private float mAnimatedBgValue = 0f;
-    private float mAmAnimatedPackValue = 0f;
 
     public void restore() {
         if (valueAnimator != null) {
