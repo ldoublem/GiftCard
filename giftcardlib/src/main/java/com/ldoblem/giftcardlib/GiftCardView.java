@@ -281,11 +281,9 @@ public class GiftCardView extends View {
         mPathBg.reset();
         mPathBg.moveTo(rectFBg.left, rectFBg.top + rectFBg.height() / 3f * 2f);
         mPathBg.lineTo(rectFBg.left, rectFBg.top + mCircular);
-        mPathBg.quadTo(rectFBg.left, rectFBg.top,
-                rectFBg.left + mCircular, rectFBg.top);
+        mPathBg.quadTo(rectFBg.left, rectFBg.top, rectFBg.left + mCircular, rectFBg.top);
         mPathBg.lineTo(rectFBg.right - mCircular, rectFBg.top);
-        mPathBg.quadTo(rectFBg.right, rectFBg.top,
-                rectFBg.right, rectFBg.top + mCircular);
+        mPathBg.quadTo(rectFBg.right, rectFBg.top, rectFBg.right, rectFBg.top + mCircular);
         mPathBg.lineTo(rectFBg.right, rectFBg.top + rectFBg.height() / 3f * 2f);
         mPathBg.close();
 
@@ -294,7 +292,7 @@ public class GiftCardView extends View {
 
         mPaintText.setTextSize(mCircular - 1);
 
-        mBuyButtonW = (getFontHeight(mPaintText, mButtonBuyText)) * 3f * 1.5f;
+        mBuyButtonW = (getFontHeight(mPaintText, mButtonBuyText)) * 4.5f;
 
         mBuyButtonH = mBuyButtonW / 3f;
 
@@ -324,7 +322,6 @@ public class GiftCardView extends View {
                     rectFBg.top + rectFBg.height() / 3f * 2f);
             } else {
                 mRightLeft = mCircular;
-                mTop = rectFBg.height() / 3f * 2f;
                 mPathBg.moveTo(rectFBg.left + mRightLeft,
                     rectFBg.top + rectFBg.height() / 3f * 2f);
                 mPathBg.lineTo(rectFBg.left + mRightLeft,
@@ -333,7 +330,6 @@ public class GiftCardView extends View {
                     rectFBg.top + rectFBg.height() / 3f * 2f - 2);
                 mPathBg.lineTo(rectFBg.right - mRightLeft,
                     rectFBg.top + rectFBg.height() / 3f * 2f);
-
             }
 
         } else {
@@ -348,8 +344,7 @@ public class GiftCardView extends View {
             mPathBg.close();
 
         }
-        setShader(mPaintBg, bgStartColor,
-                bgEndColor);
+        setShader(mPaintBg, bgStartColor, bgEndColor);
         canvas.drawPath(mPathBg, mPaintBg);
         mPaintBg.setShader(null);
     }
@@ -366,7 +361,7 @@ public class GiftCardView extends View {
         mPathBg.quadTo(rectFBg.left,
             rectFBg.top + rectFBg.height() / 3f * 2f,
             rectFBg.right,
-            rectFBg.top + rectFBg.height() / 3f * 2f / 2f
+            rectFBg.top + rectFBg.height() / 3f
         );
         mPathBg.lineTo(rectFBg.right, rectFBg.top + rectFBg.height() / 3f * 2f);
         mPathBg.close();
@@ -379,13 +374,12 @@ public class GiftCardView extends View {
     private void drawLogo(Canvas canvas) {
         if (mAnimatedBgValue < 1f) {
             mPaintBg.setColor(Color.WHITE);
-            Bitmap ios = setBitmapSize(giftLogo, (int) (rectFBg.height() / 4f * 3f / 3f));
+            Bitmap ios = setBitmapSize(giftLogo, (int) (rectFBg.height() / 4f ));
             canvas.drawBitmap(ios, rectFBg.centerX() - ios.getWidth() / 2,
-                rectFBg.top + rectFBg.height() / 3f * 2f / 2f - ios.getHeight() / 2
-                    + rectFBg.height() / 3f * 1.5f * (mAnimatedBgValue), mPaintBg);
+                rectFBg.top + rectFBg.height() / 3f - ios.getHeight() / 2
+                    + rectFBg.height() / 4.5f * (mAnimatedBgValue), mPaintBg);
         }
     }
-
 
     private void drawCardBottomBg(Canvas canvas) {
         mPathBg.reset();
@@ -401,16 +395,13 @@ public class GiftCardView extends View {
 
         mPaintBg.setColor(cardBgColor);
         canvas.drawPath(mPathBg, mPaintBg);
-
     }
 
-
     private void drawTitleAndPrice(Canvas canvas) {
-        setShader(mPaintText, bgStartColor,
-                bgEndColor);
+        setShader(mPaintText, bgStartColor, bgEndColor);
         mPaintText.setTextSize(mCircular + 1);
         canvas.drawText(mTitle, rectFBgMove.left + mCircular,
-                rectFBgMove.top + rectFBgMove.height() / 3f * 2f + rectFBgMove.height() / 3f / 2f
+                rectFBgMove.top + rectFBgMove.height() / 3f * 2f + rectFBgMove.height() / 6f
                     - getFontHeight(mPaintText, mTitle) / 2f,
                 mPaintText);
         mPaintText.setShader(null);
@@ -422,7 +413,7 @@ public class GiftCardView extends View {
 
         canvas.drawText(price, rectFBgMove.left + mCircular,
             rectFBgMove.top + rectFBgMove.height() / 3f * 2f
-                + rectFBgMove.height() / 3f / 2f + getFontHeight(mPaintText, price),
+                + rectFBgMove.height() / 6f + getFontHeight(mPaintText, price),
             mPaintText);
     }
 
@@ -430,9 +421,9 @@ public class GiftCardView extends View {
         mPaintBuyButton.setColor(buyButtonColor);
         mPaintText.setTextSize(mCircular - 1);
         rectFBuyButton.top = rectFBgMove.top + rectFBgMove.height() / 3f * 2f
-            + rectFBgMove.height() / 3f / 2f - mBuyButtonH;
+            + rectFBgMove.height() / 6f - mBuyButtonH;
         rectFBuyButton.bottom = rectFBgMove.top + rectFBgMove.height() / 3f * 2f
-            + rectFBgMove.height() / 3f / 2f + mBuyButtonH;
+            + rectFBgMove.height() / 6f + mBuyButtonH;
         rectFBuyButton.right = rectFBgMove.right - mCircular;
         rectFBuyButton.left = rectFBgMove.right - mCircular - mBuyButtonW;
 
@@ -845,9 +836,9 @@ public class GiftCardView extends View {
         if (mAnimatedBgValue > 0.5f) {
             mPaintBuyButton.setColor(checkButtonColor);
             rectFCheckButton.top = rectFBgMove.top + rectFBgMove.height() / 3f * 2f
-                + rectFBgMove.height() / 3f / 2f - mBuyButtonH;
+                + rectFBgMove.height() / 6f - mBuyButtonH;
             rectFCheckButton.bottom = rectFBgMove.top + rectFBgMove.height() / 3f * 2f
-                + rectFBgMove.height() / 3f / 2f + mBuyButtonH;
+                + rectFBgMove.height() / 6f + mBuyButtonH;
             rectFCheckButton.right = rectFBgMove.right - mCircular
                 + (rectFBg.width() - mCircular * 2 - mBuyButtonW);
             rectFCheckButton.left = rectFBgMove.right - mCircular - mBuyButtonW
@@ -855,10 +846,10 @@ public class GiftCardView extends View {
 
 
             if (pressCheckButton) {
-                rectFCheckButton.bottom = rectFCheckButton.bottom - 4;
-                rectFCheckButton.top = rectFCheckButton.top + 4;
-                rectFCheckButton.left = rectFCheckButton.left + 4;
-                rectFCheckButton.right = rectFCheckButton.right - 4;
+                rectFCheckButton.bottom -= 4;
+                rectFCheckButton.top += 4;
+                rectFCheckButton.left += 4;
+                rectFCheckButton.right -= 4;
             }
 
             canvas.drawRoundRect(rectFCheckButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
@@ -958,9 +949,8 @@ public class GiftCardView extends View {
     private void setShader(Paint p, int startColor, int endColor) {
         mShader = new LinearGradient(rectFBg.left, rectFBg.top,
                 rectFBg.right, rectFBg.bottom,
-                new int[]{startColor, endColor
-
-                }, new float[]{0f, 1f},
+                new int[]{startColor, endColor},
+                new float[]{0f, 1f},
                 Shader.TileMode.CLAMP);
         p.setColor(startColor);
         p.setShader(mShader);
