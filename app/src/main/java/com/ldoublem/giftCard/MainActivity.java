@@ -1,5 +1,6 @@
 package com.ldoublem.giftcard;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
     @Override
     public void ok(int vid) {
         if (vid == R.id.gc_shop) {
-            Toast.makeText(MainActivity.this, "Thank you", Toast.LENGTH_SHORT).show();
+            Snackbar.make(findViewById(R.id.snackbarPosition), "Thank you", Snackbar.LENGTH_SHORT)
+                .show();
             mGiftCardView.restore();
         }
     }
