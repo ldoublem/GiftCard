@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GiftCardLib</string>
+
+    <string name="card_title">Gift Card</string>
+    <string name="card_tip">YOU ORDER WILL BE SHIPPED TO:</string>
+
+    <string name="button_buy">Buy</string>
+    <string name="button_check_test">ok</string>
+
 </resources>

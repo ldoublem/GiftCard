@@ -54,12 +54,12 @@ public class GiftCardView extends View {
     private float mCircular = 0f;
     private Shader mShader;
 
-    private String mTitle = "Gift Card";
+    private String mTitle;
     private float mPrice = 25.00f;
 
-    private String mButtonBuyText = "Buy";
-    private String mButtonCheckText = "ok";
-    private String cardTip = "YOU ORDER WILL BE SHIPPED TO:";
+    private String mButtonBuyText;
+    private String mButtonCheckText;
+    private String cardTip;
 
     private float mBuyButtonH = 0f;
     private float mBuyButtonW = 0f;
@@ -178,16 +178,18 @@ public class GiftCardView extends View {
             giftLogo = typedArray.getResourceId(R.styleable.CardView_cardGiftLogo, R.drawable.apple);
             mTitle = typedArray.getString(R.styleable.CardView_cardGiftTitle);
             if (mTitle == null) {
-                mTitle = "Gift Card";
+                mTitle = getContext().getString(R.string.card_title);
             }
+
+            cardTip = getContext().getString(R.string.card_tip);
 
             mButtonCheckText = typedArray.getString(R.styleable.CardView_buttonCheckText);
             if (mButtonCheckText == null) {
-                mButtonCheckText = "ok";
+                mButtonCheckText = getContext().getString(R.string.button_check_test);
             }
             mButtonBuyText = typedArray.getString(R.styleable.CardView_buttonByText);
             if (mButtonBuyText == null) {
-                mButtonBuyText = "Buy";
+                mButtonBuyText = getContext().getString(R.string.button_buy);
             }
 
 
