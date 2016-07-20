@@ -1,62 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dddddd"
-    android:gravity="center"
-    android:orientation="vertical"
-    >
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/snackbarPosition">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#dddddd"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
 
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
 
-            <com.ldoblem.giftcardlib.GiftCardView
-                android:layout_width="300dp"
-                android:layout_height="200dp"
-                card:bgStartColor="#11cd6e"
-                card:buyButtonColor="#11cd6e"
-                card:cardBgColor="#33475f"
-                card:buttonByText="购买"
-                card:cardGiftTitle="礼物卡"
-                card:cardGiftLogo="@mipmap/ic_launcher"
-                card:buttonCheckText="确定"
-                card:checkButtonColor="#2c2c2c"
-                card:bgPackColor="#56abe4"
-                card:priceTextColor="#fff"/>
+            android:layout_height="wrap_content">
 
-            <com.ldoblem.giftcardlib.GiftCardView
-                android:layout_width="300dp"
-                android:layout_height="200dp"
-                card:bgEndColor="#56abe4"
-                card:bgPackColor="#36ab60"
-                card:bgStartColor="#11cd6e"
-                card:buyButtonColor="#56abe4"
-                card:cardBgColor="#fff"
-                card:cardGiftLogo="@mipmap/gift"
-                card:cardGiftPrice="520"
-                card:checkButtonColor="#00bb9c"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.ldoblem.giftcardlib.GiftCardView
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    card:bgStartColor="#11cd6e"
+                    card:buyButtonColor="#11cd6e"
+                    card:cardBgColor="#33475f"
+                    card:buttonByText="购买"
+                    card:cardGiftTitle="礼物卡"
+                    card:cardGiftLogo="@mipmap/ic_launcher"
+                    card:buttonCheckText="确定"
+                    card:checkButtonColor="#2c2c2c"
+                    card:bgPackColor="#56abe4"
+                    card:priceTextColor="#fff"/>
+
+                <com.ldoblem.giftcardlib.GiftCardView
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    card:bgEndColor="#56abe4"
+                    card:bgPackColor="#36ab60"
+                    card:bgStartColor="#11cd6e"
+                    card:buyButtonColor="#56abe4"
+                    card:cardBgColor="#fff"
+                    card:cardGiftLogo="@mipmap/gift"
+                    card:cardGiftPrice="520"
+                    card:checkButtonColor="#00bb9c"
+                    />
 
 
-            <com.ldoblem.giftcardlib.GiftCardView
-                android:layout_width="300dp"
-                android:id="@+id/gc_shop"
-                android:layout_height="200dp"
-                card:cardGiftPrice="520"
-              />
+                <com.ldoblem.giftcardlib.GiftCardView
+                    android:layout_width="300dp"
+                    android:id="@+id/gc_shop"
+                    android:layout_height="200dp"
+                    card:cardGiftPrice="520"
+                    />
 
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
 
-</LinearLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

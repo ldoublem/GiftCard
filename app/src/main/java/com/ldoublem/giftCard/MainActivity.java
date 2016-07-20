@@ -1,12 +1,13 @@
-package com.ldoublem.giftCard;
+package com.ldoublem.giftcard;
 
-import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.ldoblem.giftcardlib.GiftCardView;
+import com.ldoblem.giftcardlib.models.Buyer;
 
 public class MainActivity extends AppCompatActivity implements GiftCardView.OnCheckOut {
     GiftCardView mGiftCardView;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
+                WindowManager.LayoutParams.FLAG_FULLSCREEN); //去掉信息栏
         setContentView(R.layout.activity_main);
         mGiftCardView = (GiftCardView) findViewById(R.id.gc_shop);
 //        mGiftCardView.setMTitle("苹果礼券");
@@ -31,17 +32,18 @@ public class MainActivity extends AppCompatActivity implements GiftCardView.OnCh
 //        mGiftCardView.setCheckButtonColor(Color.BLACK);
 //        mGiftCardView.setPriceTextColor(Color.BLACK);
 //        mGiftCardView.setBgPackBgColor(Color.BLACK);
-        mGiftCardView.setOnCheckOut(new GiftCardView.Buyer("陆先生", "中国浙江省",
+        mGiftCardView.setOnCheckOut(new Buyer("陆先生", "中国浙江省",
                         "杭州市,西湖区,南山路100号", "有效期:3天"),
                 this);
 
     }
 
     @Override
-    public void Ok(int vid) {
+    public void ok(int vid) {
         if (vid == R.id.gc_shop) {
-            Toast.makeText(MainActivity.this, "Thank you", Toast.LENGTH_SHORT).show();
-            mGiftCardView.Restore();
+            Snackbar.make(findViewById(R.id.snackbarPosition), "Thank you", Snackbar.LENGTH_SHORT)
+                .show();
+            mGiftCardView.restore();
         }
     }
 }
