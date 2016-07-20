@@ -444,392 +444,400 @@ public class GiftCardView extends View {
             mPaintText);
 
         if (mAmAnimatedPackValue > 0f && mAmAnimatedPackValue <= 0.4f) {
-            float packValueFirst = mAmAnimatedPackValue / 0.4f;
-            float maxHigh = rectFBuyButton.height() / 2f * 0.8f;
-
-            mPaintBuyButton.setColor(bgPackBgColor);
-            mPathPackTop.reset();
-            mPathPackTop.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.top);
-            mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.top);
-
-            mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f
-                - maxHigh * (1 - packValueFirst), rectFBuyButton.top
-                - maxHigh * (1 - packValueFirst));
-
-            mPathPackTop.lineTo(rectFBuyButton.left + mCircular / 2f
-                + maxHigh * (1 - packValueFirst),
-                rectFBuyButton.top - maxHigh * (1 - packValueFirst));
-
-            mPathPackTop.close();
-            mPaintBuyButton.setAlpha(200);
-            canvas.drawPath(mPathPackTop, mPaintBuyButton);
-
-            mPathPackTop.reset();
-            mPathPackTop.moveTo(rectFBuyButton.right - mCircular / 2f
-                    - maxHigh * (1 - packValueFirst),
-                rectFBuyButton.top - maxHigh * (1 - packValueFirst));
-
-            mPathPackTop.lineTo(rectFBuyButton.left + mCircular / 2f
-                + maxHigh * (1 - packValueFirst),
-                rectFBuyButton.top - maxHigh * (1 - packValueFirst));
-
-            mPathPackTop.lineTo(rectFBuyButton.centerX(),
-                    rectFBuyButton.top - maxHigh * (1 - packValueFirst) + maxHigh * packValueFirst);
-            mPathPackTop.close();
-            mPaintBuyButton.setAlpha(255);
-
-            canvas.drawPath(mPathPackTop, mPaintBuyButton);
-
-            mPathPackBottom.reset();
-            mPathPackBottom.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.bottom);
-            mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.bottom);
-
-            mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f
-                    - maxHigh * (1 - packValueFirst),
-                rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
-
-            mPathPackBottom.lineTo(rectFBuyButton.left + mCircular / 2f
-                    + maxHigh * (1 - packValueFirst),
-                rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
-
-            mPathPackBottom.close();
-            mPaintBuyButton.setAlpha(200);
-            canvas.drawPath(mPathPackBottom, mPaintBuyButton);
-
-            mPathPackBottom.reset();
-            mPathPackBottom.moveTo(rectFBuyButton.right - mCircular / 2f
-                    - maxHigh * (1 - packValueFirst),
-                rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
-
-            mPathPackBottom.lineTo(rectFBuyButton.left + mCircular / 2f
-                    + maxHigh * (1 - packValueFirst),
-                rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
-            mPathPackBottom.lineTo(rectFBuyButton.centerX(),
-                    rectFBuyButton.bottom + maxHigh * (1 - packValueFirst)
-                        - maxHigh * packValueFirst
-
-            );
-            mPathPackBottom.close();
-            mPaintBuyButton.setAlpha(255);
-
-            canvas.drawPath(mPathPackBottom, mPaintBuyButton);
-
-            float maxWidth = rectFBuyButton.height() / 2f * 0.5f;
-
-            mPathPackLeft.reset();
-            mPathPackLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 2f);
-            mPathPackLeft.lineTo(rectFBuyButton.left, rectFBuyButton.bottom - mCircular / 2f);
-            mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
-                rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst)
-            );
-            mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
-                rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
-
-            mPathPackLeft.close();
-            mPaintBuyButton.setAlpha(200);
-            canvas.drawPath(mPathPackLeft, mPaintBuyButton);
-
-            mPathPackLeft.reset();
-            mPathPackLeft.moveTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
-                rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst));
-            mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
-                rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
-
-            mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst)
-                + maxWidth * packValueFirst, rectFBuyButton.centerY());
-
-            mPathPackLeft.close();
-            mPaintBuyButton.setAlpha(255);
-            canvas.drawPath(mPathPackLeft, mPaintBuyButton);
-
-            mPathPackRight.reset();
-            mPathPackRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 2f);
-            mPathPackRight.lineTo(rectFBuyButton.right, rectFBuyButton.bottom - mCircular / 2f);
-            mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
-                rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst)
-            );
-            mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
-                rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
-
-            mPathPackRight.close();
-            mPaintBuyButton.setAlpha(200);
-            canvas.drawPath(mPathPackRight, mPaintBuyButton);
-
-            mPathPackRight.reset();
-            mPathPackRight.moveTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
-                rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst));
-            mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
-                rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
-
-            mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst)
-                    - maxWidth * packValueFirst,
-                rectFBuyButton.centerY());
-
-            mPathPackRight.close();
-            mPaintBuyButton.setAlpha(255);
-            canvas.drawPath(mPathPackRight, mPaintBuyButton);
-
+            drawBuyButtonFrom0to4(canvas);
         } else if (mAmAnimatedPackValue > 0.4f && mAmAnimatedPackValue <= 0.5f) {
-
-            mPaintBuyButton.setColor(bgPackBgColor);
-
-            canvas.drawRoundRect(rectFBuyButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
-
-            float packValueFirst = (mAmAnimatedPackValue - 0.4f) / 0.1f;
-
-            mPaintBuyButton.setColor(Color.rgb(253, 209, 48));
-//            mPaintBuyButton.setAlpha(200);
-            mPathsilkTop.reset();
-            mPathsilkTop.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.top);
-            mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.top);
-            mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.top - packValueFirst * mCircular / 2f);
-            mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f,
-                rectFBuyButton.top - packValueFirst * mCircular / 2f
-            );
-
-            mPathsilkTop.close();
-            canvas.drawPath(mPathsilkTop, mPaintBuyButton);
-
-            mPathsilkBottom.reset();
-            mPathsilkBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.bottom);
-            mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.bottom);
-            mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.bottom + mCircular / 2f * packValueFirst);
-            mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.bottom
-                   + mCircular / 2f * packValueFirst
-            );
-
-            mPathsilkBottom.close();
-            canvas.drawPath(mPathsilkBottom, mPaintBuyButton);
-
-            mPathsilkLeft.reset();
-            mPathsilkLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f);
-            mPathsilkLeft.lineTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f
-                + mCircular / 1.5f);
-            mPathsilkLeft.lineTo(rectFBuyButton.left - mCircular / 2f * packValueFirst
-                    , rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
-            );
-            mPathsilkLeft.lineTo(rectFBuyButton.left - mCircular / 2f * packValueFirst
-                    , rectFBuyButton.top + mCircular / 1.4f
-            );
-
-            mPathsilkLeft.close();
-            canvas.drawPath(mPathsilkLeft, mPaintBuyButton);
-
-            mPathsilkRight.reset();
-            mPathsilkRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f);
-            mPathsilkRight.lineTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f
-                + mCircular / 1.5f);
-            mPathsilkRight.lineTo(rectFBuyButton.right + mCircular / 2f * packValueFirst,
-                rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
-            );
-            mPathsilkRight.lineTo(rectFBuyButton.right + mCircular / 2f * packValueFirst,
-                rectFBuyButton.top + mCircular / 1.4f
-            );
-
-            mPathsilkRight.close();
-            canvas.drawPath(mPathsilkRight, mPaintBuyButton);
-
+            drawBuyButtonFrom4to5(canvas);
         } else if (mAmAnimatedPackValue > 0.5f && mAmAnimatedPackValue <= 1f) {
+            drawBuyButtonFrom5to10(canvas);
+        }
+    }
 
-            mPaintBuyButton.setColor(bgPackBgColor);
+    private void drawBuyButtonFrom0to4(Canvas canvas) {
+        float packValueFirst = mAmAnimatedPackValue / 0.4f;
+        float maxHigh = rectFBuyButton.height() / 2f * 0.8f;
 
-            canvas.drawRoundRect(rectFBuyButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
+        mPaintBuyButton.setColor(bgPackBgColor);
+        mPathPackTop.reset();
+        mPathPackTop.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.top);
+        mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.top);
 
-            float packValueSecond = (mAmAnimatedPackValue - 0.5f) / 0.5f;
-            if (packValueSecond >= 1f) {
-                packValueSecond = 1f;
-            }
+        mPathPackTop.lineTo(rectFBuyButton.right - mCircular / 2f
+            - maxHigh * (1 - packValueFirst), rectFBuyButton.top
+            - maxHigh * (1 - packValueFirst));
 
-            mPaintBuyButton.setColor(Color.rgb(253, 209, 48));
-            float maxSilkTopH = rectFBuyButton.height() / 3f + mCircular;
-            float maxSilkBottpmH = rectFBuyButton.height() / 3f * 2 + mCircular;
-            mPathsilkTop.reset();
-            mPathsilkTop.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.top);
-            mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.top);
-            mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.top + maxSilkTopH * packValueSecond - mCircular / 2f
+        mPathPackTop.lineTo(rectFBuyButton.left + mCircular / 2f
+                + maxHigh * (1 - packValueFirst),
+            rectFBuyButton.top - maxHigh * (1 - packValueFirst));
+
+        mPathPackTop.close();
+        mPaintBuyButton.setAlpha(200);
+        canvas.drawPath(mPathPackTop, mPaintBuyButton);
+
+        mPathPackTop.reset();
+        mPathPackTop.moveTo(rectFBuyButton.right - mCircular / 2f
+                - maxHigh * (1 - packValueFirst),
+            rectFBuyButton.top - maxHigh * (1 - packValueFirst));
+
+        mPathPackTop.lineTo(rectFBuyButton.left + mCircular / 2f
+                + maxHigh * (1 - packValueFirst),
+            rectFBuyButton.top - maxHigh * (1 - packValueFirst));
+
+        mPathPackTop.lineTo(rectFBuyButton.centerX(),
+            rectFBuyButton.top - maxHigh * (1 - packValueFirst) + maxHigh * packValueFirst);
+        mPathPackTop.close();
+        mPaintBuyButton.setAlpha(255);
+
+        canvas.drawPath(mPathPackTop, mPaintBuyButton);
+
+        mPathPackBottom.reset();
+        mPathPackBottom.moveTo(rectFBuyButton.left + mCircular / 2f, rectFBuyButton.bottom);
+        mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f, rectFBuyButton.bottom);
+
+        mPathPackBottom.lineTo(rectFBuyButton.right - mCircular / 2f
+                - maxHigh * (1 - packValueFirst),
+            rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
+
+        mPathPackBottom.lineTo(rectFBuyButton.left + mCircular / 2f
+                + maxHigh * (1 - packValueFirst),
+            rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
+
+        mPathPackBottom.close();
+        mPaintBuyButton.setAlpha(200);
+        canvas.drawPath(mPathPackBottom, mPaintBuyButton);
+
+        mPathPackBottom.reset();
+        mPathPackBottom.moveTo(rectFBuyButton.right - mCircular / 2f
+                - maxHigh * (1 - packValueFirst),
+            rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
+
+        mPathPackBottom.lineTo(rectFBuyButton.left + mCircular / 2f
+                + maxHigh * (1 - packValueFirst),
+            rectFBuyButton.bottom + maxHigh * (1 - packValueFirst));
+        mPathPackBottom.lineTo(rectFBuyButton.centerX(),
+            rectFBuyButton.bottom + maxHigh * (1 - packValueFirst)
+                - maxHigh * packValueFirst
+
+        );
+        mPathPackBottom.close();
+        mPaintBuyButton.setAlpha(255);
+
+        canvas.drawPath(mPathPackBottom, mPaintBuyButton);
+
+        float maxWidth = rectFBuyButton.height() / 2f * 0.5f;
+
+        mPathPackLeft.reset();
+        mPathPackLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 2f);
+        mPathPackLeft.lineTo(rectFBuyButton.left, rectFBuyButton.bottom - mCircular / 2f);
+        mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
+            rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst)
+        );
+        mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
+            rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
+
+        mPathPackLeft.close();
+        mPaintBuyButton.setAlpha(200);
+        canvas.drawPath(mPathPackLeft, mPaintBuyButton);
+
+        mPathPackLeft.reset();
+        mPathPackLeft.moveTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
+            rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst));
+        mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst),
+            rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
+
+        mPathPackLeft.lineTo(rectFBuyButton.left - maxWidth * (1 - packValueFirst)
+            + maxWidth * packValueFirst, rectFBuyButton.centerY());
+
+        mPathPackLeft.close();
+        mPaintBuyButton.setAlpha(255);
+        canvas.drawPath(mPathPackLeft, mPaintBuyButton);
+
+        mPathPackRight.reset();
+        mPathPackRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 2f);
+        mPathPackRight.lineTo(rectFBuyButton.right, rectFBuyButton.bottom - mCircular / 2f);
+        mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
+            rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst)
+        );
+        mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
+            rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
+
+        mPathPackRight.close();
+        mPaintBuyButton.setAlpha(200);
+        canvas.drawPath(mPathPackRight, mPaintBuyButton);
+
+        mPathPackRight.reset();
+        mPathPackRight.moveTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
+            rectFBuyButton.bottom - mCircular / 2f - maxWidth * (1 - packValueFirst));
+        mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst),
+            rectFBuyButton.top + mCircular / 2f + maxWidth * (1 - packValueFirst));
+
+        mPathPackRight.lineTo(rectFBuyButton.right + maxWidth * (1 - packValueFirst)
+                - maxWidth * packValueFirst,
+            rectFBuyButton.centerY());
+
+        mPathPackRight.close();
+        mPaintBuyButton.setAlpha(255);
+        canvas.drawPath(mPathPackRight, mPaintBuyButton);
+    }
+
+    private void drawBuyButtonFrom4to5(Canvas canvas) {
+        mPaintBuyButton.setColor(bgPackBgColor);
+
+        canvas.drawRoundRect(rectFBuyButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
+
+        float packValueFirst = (mAmAnimatedPackValue - 0.4f) / 0.1f;
+
+        mPaintBuyButton.setColor(Color.rgb(253, 209, 48));
+        //            mPaintBuyButton.setAlpha(200);
+        mPathsilkTop.reset();
+        mPathsilkTop.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.top);
+        mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.top);
+        mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.top - packValueFirst * mCircular / 2f);
+        mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f,
+            rectFBuyButton.top - packValueFirst * mCircular / 2f
+        );
+
+        mPathsilkTop.close();
+        canvas.drawPath(mPathsilkTop, mPaintBuyButton);
+
+        mPathsilkBottom.reset();
+        mPathsilkBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.bottom);
+        mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.bottom);
+        mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.bottom + mCircular / 2f * packValueFirst);
+        mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.bottom
+            + mCircular / 2f * packValueFirst
+        );
+
+        mPathsilkBottom.close();
+        canvas.drawPath(mPathsilkBottom, mPaintBuyButton);
+
+        mPathsilkLeft.reset();
+        mPathsilkLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f);
+        mPathsilkLeft.lineTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f
+            + mCircular / 1.5f);
+        mPathsilkLeft.lineTo(rectFBuyButton.left - mCircular / 2f * packValueFirst
+            , rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
+        );
+        mPathsilkLeft.lineTo(rectFBuyButton.left - mCircular / 2f * packValueFirst
+            , rectFBuyButton.top + mCircular / 1.4f
+        );
+
+        mPathsilkLeft.close();
+        canvas.drawPath(mPathsilkLeft, mPaintBuyButton);
+
+        mPathsilkRight.reset();
+        mPathsilkRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f);
+        mPathsilkRight.lineTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f
+            + mCircular / 1.5f);
+        mPathsilkRight.lineTo(rectFBuyButton.right + mCircular / 2f * packValueFirst,
+            rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
+        );
+        mPathsilkRight.lineTo(rectFBuyButton.right + mCircular / 2f * packValueFirst,
+            rectFBuyButton.top + mCircular / 1.4f
+        );
+
+        mPathsilkRight.close();
+        canvas.drawPath(mPathsilkRight, mPaintBuyButton);
+    }
+
+    private void drawBuyButtonFrom5to10(Canvas canvas) {
+        mPaintBuyButton.setColor(bgPackBgColor);
+
+        canvas.drawRoundRect(rectFBuyButton, mCircular / 2f, mCircular / 2f, mPaintBuyButton);
+
+        float packValueSecond = (mAmAnimatedPackValue - 0.5f) / 0.5f;
+        if (packValueSecond >= 1f) {
+            packValueSecond = 1f;
+        }
+
+        mPaintBuyButton.setColor(Color.rgb(253, 209, 48));
+        float maxSilkTopH = rectFBuyButton.height() / 3f + mCircular;
+        float maxSilkBottpmH = rectFBuyButton.height() / 3f * 2 + mCircular;
+        mPathsilkTop.reset();
+        mPathsilkTop.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.top);
+        mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.top);
+        mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.top + maxSilkTopH * packValueSecond - mCircular / 2f
+        );
+        mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f,
+            rectFBuyButton.top + maxSilkTopH * packValueSecond - mCircular / 2f
+        );
+
+        mPathsilkTop.close();
+        canvas.drawPath(mPathsilkTop, mPaintBuyButton);
+
+        mPathsilkBottom.reset();
+        mPathsilkBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.bottom);
+        mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.bottom);
+        mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
+            rectFBuyButton.bottom - maxSilkBottpmH * packValueSecond + mCircular / 2f);
+        mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f,
+            rectFBuyButton.bottom - maxSilkBottpmH * packValueSecond + mCircular / 2f
+        );
+
+        mPathsilkBottom.close();
+        canvas.drawPath(mPathsilkBottom, mPaintBuyButton);
+
+        float maxSilkLeftW = mCircular + mCircular;
+
+        mPathsilkLeft.reset();
+        mPathsilkLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f);
+        mPathsilkLeft.lineTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f
+            + mCircular / 1.5f);
+        mPathsilkLeft.lineTo(rectFBuyButton.left + maxSilkLeftW * packValueSecond
+                - mCircular / 2f,
+            rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
+        );
+        mPathsilkLeft.lineTo(rectFBuyButton.left + maxSilkLeftW * packValueSecond
+                - mCircular / 2f,
+            rectFBuyButton.top + mCircular / 1.4f
+        );
+
+        mPathsilkLeft.close();
+        canvas.drawPath(mPathsilkLeft, mPaintBuyButton);
+
+        float maxSilkRightW = rectFBuyButton.width() - mCircular + mCircular;
+
+        mPathsilkRight.reset();
+        mPathsilkRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f);
+        mPathsilkRight.lineTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f
+            + mCircular / 1.5f);
+        mPathsilkRight.lineTo(rectFBuyButton.right - maxSilkRightW * packValueSecond
+                + mCircular / 2f,
+            rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
+        );
+        mPathsilkRight.lineTo(rectFBuyButton.right - maxSilkRightW * packValueSecond
+                + mCircular / 2f,
+            rectFBuyButton.top + mCircular / 1.4f
+        );
+
+        mPathsilkRight.close();
+        canvas.drawPath(mPathsilkRight, mPaintBuyButton);
+
+        if (mAmAnimatedPackValue > 0.8f && mAmAnimatedPackValue <= 1f) {
+            mPaintBuyButton.setColor(Color.rgb(254, 230, 51));
+            float packValueThird = (mAmAnimatedPackValue - 0.8f) / 0.2f;
+
+            Path bowknotLeftTop = new Path();
+            bowknotLeftTop.reset();
+
+            float x = (float) ((mCircular / 3f) * Math.cos(90 * Math.PI / 180f));
+            float y = (float) ((mCircular / 3f) * Math.sin(90 * Math.PI / 180f));
+
+            bowknotLeftTop.moveTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x,
+                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y);
+
+            float x2 = (float) ((mCircular / 3f) * Math.cos(-60 * Math.PI / 180f));
+            float y2 = (float) ((mCircular / 3f) * Math.sin(-60 * Math.PI / 180f));
+
+            bowknotLeftTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x2,
+                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y2);
+
+            bowknotLeftTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x2 - mCircular,
+                rectFBuyButton.top + mCircular / 1.4f - y2);
+
+            bowknotLeftTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x - mCircular,
+                rectFBuyButton.top + mCircular / 1.4f - y);
+            bowknotLeftTop.close();
+            canvas.drawPath(bowknotLeftTop, mPaintBuyButton);
+
+            Path bowknotRighrTop = new Path();
+            bowknotRighrTop.reset();
+            float x3 = (float) ((mCircular / 3f) * Math.cos(240 * Math.PI / 180f));
+            float y3 = (float) ((mCircular / 3f) * Math.sin(240 * Math.PI / 180f));
+
+            bowknotRighrTop.moveTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x,
+                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y);
+
+            bowknotRighrTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x3,
+                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y3);
+            bowknotRighrTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x3 + mCircular,
+                rectFBuyButton.top + mCircular / 1.4f - y3);
+
+            bowknotRighrTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x + mCircular,
+                rectFBuyButton.top + mCircular / 1.4f - y);
+
+            bowknotRighrTop.close();
+            canvas.drawPath(bowknotRighrTop, mPaintBuyButton);
+
+            float space = mCircular / 3 * 2 * 1.2f;
+            Path bowknotLeftBottom = new Path();
+            bowknotLeftBottom.reset();
+            float x4 = (float) ((mCircular / 3f) * Math.cos(270 * Math.PI / 180f));
+            float y4 = (float) ((mCircular / 3f) * Math.sin(270 * Math.PI / 180f));
+            bowknotLeftBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4);
+
+            bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4 - space,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 + space);
+
+            bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4 - space,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
+                    + space - space / 2);
+
+            bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4 - space - space / 2,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
+                    + space - space / 2);
+
+            bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 - space);
+            bowknotLeftBottom.close();
+            canvas.drawPath(bowknotLeftBottom, mPaintBuyButton);
+
+            Path bowknotRightBottom = new Path();
+            bowknotRightBottom.reset();
+
+            bowknotRightBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4);
+
+            bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4 + space,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 + space);
+
+            bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4 + space,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
+                    + space - space / 2);
+
+            bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4 + space + space / 2,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
+                    + space - space / 2);
+
+            bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
+                    + mCircular / 3f - x4,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 - space);
+            bowknotRightBottom.close();
+            canvas.drawPath(bowknotRightBottom, mPaintBuyButton);
+
+            mPaintBuyButton.setColor(Color.GRAY);
+
+            canvas.drawCircle(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f,
+                (mCircular / 3f * 1.401f) * packValueThird, mPaintBuyButton);
+
+            mPaintBuyButton.setColor(Color.rgb(254, 230, 51));
+
+            canvas.drawCircle(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f,
+                rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f,
+                (mCircular / 3f * 1.4f) * packValueThird,
+                mPaintBuyButton
             );
-            mPathsilkTop.lineTo(rectFBuyButton.left + mCircular * 1.1f,
-                rectFBuyButton.top + maxSilkTopH * packValueSecond - mCircular / 2f
-            );
-
-            mPathsilkTop.close();
-            canvas.drawPath(mPathsilkTop, mPaintBuyButton);
-
-            mPathsilkBottom.reset();
-            mPathsilkBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f, rectFBuyButton.bottom);
-            mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.bottom);
-            mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 1.5f,
-                rectFBuyButton.bottom - maxSilkBottpmH * packValueSecond + mCircular / 2f);
-            mPathsilkBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f,
-                rectFBuyButton.bottom - maxSilkBottpmH * packValueSecond + mCircular / 2f
-            );
-
-            mPathsilkBottom.close();
-            canvas.drawPath(mPathsilkBottom, mPaintBuyButton);
-
-            float maxSilkLeftW = mCircular + mCircular;
-
-            mPathsilkLeft.reset();
-            mPathsilkLeft.moveTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f);
-            mPathsilkLeft.lineTo(rectFBuyButton.left, rectFBuyButton.top + mCircular / 1.4f
-                + mCircular / 1.5f);
-            mPathsilkLeft.lineTo(rectFBuyButton.left + maxSilkLeftW * packValueSecond
-                    - mCircular / 2f,
-                rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
-            );
-            mPathsilkLeft.lineTo(rectFBuyButton.left + maxSilkLeftW * packValueSecond
-                    - mCircular / 2f,
-                rectFBuyButton.top + mCircular / 1.4f
-            );
-
-            mPathsilkLeft.close();
-            canvas.drawPath(mPathsilkLeft, mPaintBuyButton);
-
-            float maxSilkRightW = rectFBuyButton.width() - mCircular + mCircular;
-
-            mPathsilkRight.reset();
-            mPathsilkRight.moveTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f);
-            mPathsilkRight.lineTo(rectFBuyButton.right, rectFBuyButton.top + mCircular / 1.4f
-                + mCircular / 1.5f);
-            mPathsilkRight.lineTo(rectFBuyButton.right - maxSilkRightW * packValueSecond
-                    + mCircular / 2f,
-                rectFBuyButton.top + mCircular / 1.4f + mCircular / 1.5f
-            );
-            mPathsilkRight.lineTo(rectFBuyButton.right - maxSilkRightW * packValueSecond
-                    + mCircular / 2f,
-                rectFBuyButton.top + mCircular / 1.4f
-            );
-
-            mPathsilkRight.close();
-            canvas.drawPath(mPathsilkRight, mPaintBuyButton);
-
-            if (mAmAnimatedPackValue > 0.8f && mAmAnimatedPackValue <= 1f) {
-                mPaintBuyButton.setColor(Color.rgb(254, 230, 51));
-                float packValueThird = (mAmAnimatedPackValue - 0.8f) / 0.2f;
-
-                Path bowknotLeftTop = new Path();
-                bowknotLeftTop.reset();
-
-                float x = (float) ((mCircular / 3f) * Math.cos(90 * Math.PI / 180f));
-                float y = (float) ((mCircular / 3f) * Math.sin(90 * Math.PI / 180f));
-
-                bowknotLeftTop.moveTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x,
-                        rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y);
-
-                float x2 = (float) ((mCircular / 3f) * Math.cos(-60 * Math.PI / 180f));
-                float y2 = (float) ((mCircular / 3f) * Math.sin(-60 * Math.PI / 180f));
-
-                bowknotLeftTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x2,
-                        rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y2);
-
-                bowknotLeftTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x2 - mCircular,
-                    rectFBuyButton.top + mCircular / 1.4f - y2);
-
-                bowknotLeftTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x - mCircular,
-                    rectFBuyButton.top + mCircular / 1.4f - y);
-                bowknotLeftTop.close();
-                canvas.drawPath(bowknotLeftTop, mPaintBuyButton);
-
-                Path bowknotRighrTop = new Path();
-                bowknotRighrTop.reset();
-                float x3 = (float) ((mCircular / 3f) * Math.cos(240 * Math.PI / 180f));
-                float y3 = (float) ((mCircular / 3f) * Math.sin(240 * Math.PI / 180f));
-
-                bowknotRighrTop.moveTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x,
-                        rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y);
-
-                bowknotRighrTop.lineTo(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f - x3,
-                        rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y3);
-                bowknotRighrTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x3 + mCircular,
-                    rectFBuyButton.top + mCircular / 1.4f - y3);
-
-                bowknotRighrTop.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x + mCircular,
-                    rectFBuyButton.top + mCircular / 1.4f - y);
-
-                bowknotRighrTop.close();
-                canvas.drawPath(bowknotRighrTop, mPaintBuyButton);
-
-                float space = mCircular / 3 * 2 * 1.2f;
-                Path bowknotLeftBottom = new Path();
-                bowknotLeftBottom.reset();
-                float x4 = (float) ((mCircular / 3f) * Math.cos(270 * Math.PI / 180f));
-                float y4 = (float) ((mCircular / 3f) * Math.sin(270 * Math.PI / 180f));
-                bowknotLeftBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4);
-
-                bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4 - space,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 + space);
-
-                bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4 - space,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
-                        + space - space / 2);
-
-                bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4 - space - space / 2,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
-                        + space - space / 2);
-
-                bowknotLeftBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 - space);
-                bowknotLeftBottom.close();
-                canvas.drawPath(bowknotLeftBottom, mPaintBuyButton);
-
-                Path bowknotRightBottom = new Path();
-                bowknotRightBottom.reset();
-
-                bowknotRightBottom.moveTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4);
-
-                bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4 + space,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 + space);
-
-                bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4 + space,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
-                        + space - space / 2);
-
-                bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4 + space + space / 2,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4
-                        + space - space / 2);
-
-                bowknotRightBottom.lineTo(rectFBuyButton.left + mCircular * 1.1f
-                        + mCircular / 3f - x4,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f - y4 - space);
-                bowknotRightBottom.close();
-                canvas.drawPath(bowknotRightBottom, mPaintBuyButton);
-
-                mPaintBuyButton.setColor(Color.GRAY);
-
-                canvas.drawCircle(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f,
-                    (mCircular / 3f * 1.401f) * packValueThird, mPaintBuyButton);
-
-                mPaintBuyButton.setColor(Color.rgb(254, 230, 51));
-
-                canvas.drawCircle(rectFBuyButton.left + mCircular * 1.1f + mCircular / 3f,
-                    rectFBuyButton.top + mCircular / 1.4f + mCircular / 3f,
-                    (mCircular / 3f * 1.4f) * packValueThird,
-                    mPaintBuyButton
-                );
-            }
         }
     }
 
